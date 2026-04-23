@@ -1,0 +1,14 @@
+# frontend
+frontend/node_modules/
+frontend/.next/
+frontend/coverage/
+
+# rust
+contracts/target/
+**/*.wasm
+
+# env
+frontend/.env.local
+
+# system
+.DS_Store
