@@ -6,6 +6,7 @@ frontend/coverage/
 # rust
 contracts/target/
 **/*.wasm
+contracts/**/test_snapshots/
 
 # env
 frontend/.env.local
