@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import { isConnected, requestAccess } from '@stellar/freighter-api';
+import { isConnected, requestAccess, getAddress } from '@stellar/freighter-api';
 import { isAdmin } from '../lib/stellar';
 import type { WalletState } from '../types';
 
@@ -10,38 +10,47 @@ export function useFreighter() {
     connecting: false,
     isAdmin: false,
   });
+  const [connectError, setConnectError] = useState<string | null>(null);
 
   const connect = useCallback(async () => {
+    setConnectError(null);
     setWallet((prev) => ({ ...prev, connecting: true }));
 
     try {
-      const status = await isConnected();
-      if (!status.isConnected) {
-        const result = await requestAccess();
-        if (result.error) throw new Error(result.error);
-        const address = result.address ?? null;
-        setWallet({
-          address,
-          connected: !!address,
-          connecting: false,
-          isAdmin: isAdmin(address),
-        });
-        return;
+      // 1. Check if Freighter extension is installed
+      const connectedResult = await isConnected();
+      if (connectedResult.error) {
+        throw new Error('Freighter extension not detected. Please install it from freighter.app');
       }
 
-      const result = await requestAccess();
-      if (result.error) throw new Error(result.error);
-      const address = result.address ?? null;
+      // 2. Request access (triggers the Freighter popup)
+      const accessResult = await requestAccess();
+      if (accessResult.error) {
+        throw new Error(String(accessResult.error));
+      }
+
+      // 3. Get address — try from requestAccess result first, fallback to getAddress()
+      let address = accessResult.address || null;
+      if (!address) {
+        const addrResult = await getAddress();
+        if (addrResult.error) throw new Error(String(addrResult.error));
+        address = addrResult.address || null;
+      }
+
+      if (!address) throw new Error('Could not retrieve wallet address from Freighter');
+
       setWallet({
         address,
-        connected: !!address,
+        connected: true,
         connecting: false,
         isAdmin: isAdmin(address),
       });
-    } catch {
-      setWallet((prev) => ({ ...prev, connecting: false }));
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'Wallet connection failed';
+      setConnectError(message);
+      setWallet((prev) => ({ ...prev, connecting: false, connected: false }));
     }
   }, []);
 
-  return { wallet, connect };
+  return { wallet, connect, connectError };
 }

@@ -33,6 +33,9 @@ export function appendFeedEvent(event: FeedEvent): void {
     const feed = getCachedFeed();
     feed.unshift(event);
     localStorage.setItem(FEED_KEY, JSON.stringify(feed.slice(0, 100)));
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('ct-feed-updated'));
+    }
   } catch {}
 }
 
