@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Community Treasury | DAO Governance on Stellar',
+  title: 'Quorum | DAO Governance on Stellar',
   description:
-    'Decentralized treasury governance on Stellar testnet. Create proposals, vote, and execute payments — all on-chain.',
+    'Quorum is a decentralized treasury governance app on Stellar Soroban. Create proposals, vote, and execute on-chain payments.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

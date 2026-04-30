@@ -65,7 +65,7 @@ function HelpModal({ onClose }: { onClose: () => void }) {
       <div className="fade-in w-full max-w-md bg-surface border border-border rounded-lg shadow-lg overflow-hidden mt-14 sm:mt-16">
         {/* Header */}
         <div className="flex items-center justify-between px-5 py-4 border-b border-border">
-          <h2 className="text-sm font-semibold text-primary">How to use Community Treasury</h2>
+          <h2 className="text-sm font-semibold text-primary">How to use Quorum</h2>
           <button
             onClick={onClose}
             className="text-secondary hover:text-primary transition-colors text-lg leading-none"
@@ -112,9 +112,9 @@ export function Header() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-8">
           <div className="flex items-center gap-3">
             <div className="h-7 w-7 rounded-md bg-accent flex items-center justify-center text-sm font-bold text-white">
-              T
+              Q
             </div>
-            <span className="text-base font-semibold text-primary tracking-tight">Community Treasury</span>
+            <span className="text-base font-semibold text-primary tracking-tight">Quorum</span>
           </div>
 
           <div className="flex items-center gap-2 sm:gap-3">

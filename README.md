@@ -1,4 +1,4 @@
-# Community Treasury
+# Quorum
 
 A decentralized governance application built on Stellar Soroban. Members create funding proposals, vote on them, and elected admins execute approved payments from a shared treasury — all recorded on-chain.
 
