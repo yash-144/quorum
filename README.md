@@ -153,9 +153,8 @@ The GitHub Actions workflow (`.github/workflows/ci.yml`) runs on every push and 
 |---|---|---|
 | **Contracts** | push / PR | Rust toolchain setup → Cargo test → WASM build |
 | **Frontend** | push / PR | Node 20 setup → `npm ci` → TypeScript type-check → production build |
-| **Deploy** | push to `main` | Vercel CLI pull → build → deploy |
 
-To enable the deploy step, add a `VERCEL_TOKEN` secret to your GitHub repository settings (Settings → Secrets → Actions).
+Deployment to Vercel is handled automatically by Vercel's GitHub integration on every push to `main`.
 
 ---
 
