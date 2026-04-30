@@ -63,12 +63,12 @@ jobs:
         working-directory: frontend
         run: npm run build
 
-  # ── Deploy to Vercel (main branch only) ─────────────────────────────────────
+  # ── Deploy to Vercel (main branch only, requires VERCEL_TOKEN secret) ────────
   deploy:
     name: Deploy — Vercel Production
     needs: [frontend]
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push' && secrets.VERCEL_TOKEN != ''
     steps:
       - uses: actions/checkout@v4
 

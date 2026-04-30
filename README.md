@@ -2,9 +2,9 @@
 
 A decentralized governance application built on Stellar Soroban. Members create funding proposals, vote on them, and elected admins execute approved payments from a shared treasury — all recorded on-chain.
 
-[![CI / CD](https://github.com/YOUR_USERNAME/YOUR_REPO/actions/workflows/ci.yml/badge.svg)](https://github.com/YOUR_USERNAME/YOUR_REPO/actions/workflows/ci.yml)
+[![CI / CD](https://github.com/yash-144/quorum/actions/workflows/ci.yml/badge.svg)](https://github.com/yash-144/quorum/actions/workflows/ci.yml)
 
-> **Live demo:** [https://YOUR_VERCEL_URL.vercel.app](https://YOUR_VERCEL_URL.vercel.app) *(update after Vercel deploy)*
+> **Live demo:** [https://quorum-one-sandy.vercel.app](https://quorum-one-sandy.vercel.app)
 
 ---
 
@@ -107,8 +107,8 @@ A decentralized governance application built on Stellar Soroban. Members create 
 ### 1. Clone and install
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
-cd YOUR_REPO/frontend
+git clone https://github.com/yash-144/quorum.git
+cd quorum/frontend
 npm install
 ```
 
