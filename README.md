@@ -12,11 +12,16 @@ A decentralized governance application built on Stellar Soroban. Members create 
 
 ### Desktop
 
-> Add a screenshot here after first deploy.
+![Desktop view 1](screenshots/desktop/1.png)
+![Desktop view 2](screenshots/desktop/2.png)
 
 ### Mobile
 
-> Add a mobile screenshot here after first deploy.
+<p float="left">
+  <img src="screenshots/mobile/1.jpeg" width="30%" />
+  <img src="screenshots/mobile/2.jpeg" width="30%" />
+  <img src="screenshots/mobile/3.jpeg" width="30%" />
+</p>
 
 ---
 
