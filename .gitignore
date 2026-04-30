@@ -2,14 +2,23 @@
 frontend/node_modules/
 frontend/.next/
 frontend/coverage/
+frontend/.env.local
 
 # rust
 contracts/target/
 **/*.wasm
 contracts/**/test_snapshots/
 
-# env
-frontend/.env.local
+# project tooling / agent files
+.codex
+COMMUNITY_TREASURY_AGENT_BRIEF.md
+plan.md
+*.agent.md
 
-# system
+# editors and OS
 .DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
